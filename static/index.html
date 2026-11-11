@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/svg+xml" href="favicon.svg?v=2"><title>Omics Explorer</title><link rel="stylesheet" href="style.css?v=20261111-nav-1"><link rel="stylesheet" href="theme.css?v=20261111-nav-1"><link rel="stylesheet" href="nav.css?v=20261111-nav-1"><script defer src="nav.js?v=20261111-nav-1"></script><script defer src="catalog.js"></script><script defer src="app.js?v=20261111-nav-1"></script></head>
+<body>
+<main>
+<h1 class="sr-only">Omics Explorer</h1><nav class="explorer-nav" data-drag-nav aria-label="분석 유형"><button type="button" data-kind="" class="active" aria-pressed="true">전체 보고서</button><button type="button" data-kind="rnaseq" aria-pressed="false">RNA-seq</button><button type="button" data-kind="scrnaseq" aria-pressed="false">scRNA-seq</button></nav><div id="stats" class="sr-only"></div>
+<section class="workspace"><aside><h2>연구 선택</h2><nav id="studies" aria-label="연구 선택"></nav><p class="note">보고서는 새 탭에서 열립니다. 분석 버전과 비교 조건은 각 보고서에서 확인하세요.</p></aside>
+<section class="content">
+<div class="page-toolbar"><div class="toolbar-group filters"><label>보고서 검색<input id="search" type="search" placeholder="연구명 또는 분석 폴더"></label></div></div>
+<div class="report-status"><h2 id="title">전체 보고서</h2><p id="kind">ALL REPORTS</p><span id="count" aria-live="polite"></span></div>
+<section id="reports" aria-label="HTML 분석 보고서" aria-live="polite"></section>
+</section></section>
+<footer><span id="updated"></span></footer>
+</main>
+</body></html>

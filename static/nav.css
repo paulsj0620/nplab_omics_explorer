@@ -1,0 +1,43 @@
+/* Shared 260ms selected pill and pointer-only drag preview. */
+.omics-drag-nav { position: relative; isolation: isolate; touch-action: pan-y; }
+.omics-drag-nav > button, .omics-drag-nav > a { position: relative; z-index: 1; }
+.omics-drag-nav .nav-selection-indicator, .omics-drag-nav .nav-drag-indicator {
+  position: absolute; z-index: 0; pointer-events: none; border-radius: 999px;
+  box-sizing: border-box;
+}
+.omics-drag-nav .nav-selection-indicator {
+  background: #292b2e; box-shadow: 0 2px 5px #0001;
+  transition: left 260ms cubic-bezier(.22,1,.36,1), top 260ms cubic-bezier(.22,1,.36,1), width 260ms cubic-bezier(.22,1,.36,1), height 260ms cubic-bezier(.22,1,.36,1);
+}
+.omics-drag-nav .nav-drag-indicator {
+  z-index: 2; border: 1px solid #8b99a8;
+  background: linear-gradient(145deg,#ffffffed,#dce5eccc);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  box-shadow: inset 0 1px 0 white,0 3px 10px #28344130;
+}
+.omics-drag-nav.nav-dragging { user-select: none; }
+.omics-drag-nav [data-nav-decoration][hidden] { display: none !important; }
+body#page-top .omics-drag-nav.nav-has-selection .menu_item.active,
+body:not(#page-top) .omics-drag-nav.nav-has-selection > button.active {
+  background: transparent; border-color: transparent; box-shadow: none;
+}
+body#page-top .omics-drag-nav.nav-pending .menu_item.active { color: #333; }
+body#page-top .omics-drag-nav.nav-pending .nav-target .menu_item { background: transparent; border-color: transparent; color: #fff; }
+body#page-top .omics-drag-nav.nav-dragging .menu_item.active,
+body:not(#page-top) .omics-drag-nav.nav-dragging > button.active { color: #333; }
+body:not(#page-top) .explorer-nav {
+  display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; margin-bottom: 20px;
+  width: fit-content; max-width: 100%; overflow: visible;
+  border: 1px solid #8997a5; border-radius: 999px;
+  background: #ffffff50; box-shadow: var(--menu-shadow);
+}
+body:not(#page-top) .explorer-nav > button {
+  width: auto; margin: 0; height: 36px; padding: 0 12px; font-weight: 700;
+  border: 1px solid transparent; border-radius: 999px; white-space: nowrap;
+}
+@media (prefers-reduced-motion: reduce) {
+  .omics-drag-nav .nav-selection-indicator { transition: none; }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .omics-drag-nav .nav-drag-indicator { background: #e8edf1; backdrop-filter: none; -webkit-backdrop-filter: none; }
+}

@@ -1,0 +1,25 @@
+# Source allowlist: data and local settings are never added by a broad git add.
+*
+!/.gitignore
+!/README.md
+!/AGENTS.md
+!/config.example.json
+!/server.py
+!/reports.py
+!/presentation.py
+!/static/
+!/static/index.html
+!/static/style.css
+!/static/theme.css
+!/static/nav.css
+!/static/app.js
+!/static/nav.js
+!/static/favicon.svg
+!/tests/
+!/tests/test_reports.py
+!/tests/test_presentation.py
+!/tests/test_server.py
+!/tests/nav.test.cjs
+!/tests/browser.spec.cjs
+!/scripts/
+!/scripts/check_release.py
